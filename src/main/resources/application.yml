@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: api-rest-demo
+  data:
+    mongodb:
+      database: embeded_db
+      port: 50741
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
+    web: TRACE
+    org.springframework.web: TRACE
+
+password:
+  pattern: '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\S+$).{8,}$'
