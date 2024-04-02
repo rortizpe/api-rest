@@ -20,6 +20,12 @@ import static com.sermaluc.apirestdemo.util.DateUtil.parseDateToString;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserBuilder {
 
+  /**
+   * costruye UserResponse desde la entidad User.
+   *
+   * @param user entidad Usuario.
+   * @return UserResponse retorna el userResponse para la vista.
+   */
   public static UserResponse buildResponseFromUser(User user) {
     return UserResponse.builder()
         .id(user.getId())
@@ -31,6 +37,13 @@ public class UserBuilder {
         .build();
   }
 
+  /**
+   * construye UserResponse desde la el request para poder almacenarlo en la DB.
+   * tambien se obtiene valor del contex puesto en el controller.
+   *
+   * @param userRequest datos del usuario requerido.
+   * @return Mono<User> retorna el Mono<User> para poder almacenarce en la DB.
+   */
   public static Mono<User> buildUserFromRequestMono(UserRequest userRequest) {
     return Mono.subscriberContext().flatMap(context -> Mono.just(User.builder()
         .name(userRequest.getName())
@@ -44,6 +57,12 @@ public class UserBuilder {
         .build()));
   }
 
+  /**
+   * costruye Phones para poder almancenar en la DB.
+   *
+   * @param phonesRequest lista de telefonos .
+   * @return List<Phone> retorna la lista de telefonos modelo.
+   */
   public static List<Phone> buildListPhonesFromListRequest(List<PhoneRequest> phonesRequest) {
     return Optional.ofNullable(phonesRequest)
         .orElse(Collections.emptyList())

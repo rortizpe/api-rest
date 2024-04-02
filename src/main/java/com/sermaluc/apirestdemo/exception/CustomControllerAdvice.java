@@ -13,23 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 @ControllerAdvice
 public class CustomControllerAdvice {
 
-    @ResponseBody
-    @ExceptionHandler(CustomException.class)
-    public ErrorResponse handleMyException(CustomException ex, HttpServletResponse response) {
+  @ResponseBody
+  @ExceptionHandler(CustomException.class)
+  public ErrorResponse handleMyException(CustomException ex, HttpServletResponse response) {
+    ErrorResponse errorResponse = new ErrorResponse();
+    errorResponse.setMessage(ex.getErrorMessage());
+    return errorResponse;
+  }
 
-        //response.setStatus(ex.getErrorCode());
-        ErrorResponse errorResponse = new ErrorResponse();
-        //errorResponse.setError(ex.getErrorCode());
-        //errorResponse.setName(ex.getErrorName());
-        errorResponse.setMessage(ex.getErrorMessage());
-
-        return errorResponse;
-    }
-
-    @ExceptionHandler(ValidateException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public MessageErrorResponse handleMyValidationException(ValidateException ex) {
-        return ex.getErrMsg();
-    }
+  @ExceptionHandler(ValidateException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  @ResponseBody
+  public MessageErrorResponse handleMyValidationException(ValidateException ex) {
+    return ex.getErrMsg();
+  }
 }

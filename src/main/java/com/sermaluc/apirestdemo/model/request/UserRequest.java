@@ -1,7 +1,7 @@
 package com.sermaluc.apirestdemo.model.request;
 
 import com.sermaluc.apirestdemo.validation.password.Password;
-import io.swagger.annotations.ApiModel;
+//import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -10,11 +10,11 @@ import java.util.List;
 
 @Getter
 @Builder
-@ApiModel(description = "datos necesarios para crear el Usuario")
+//  @ApiModel(description = "datos necesarios para crear el Usuario")
 public class UserRequest {
 
   private String name;
-  @Email(regexp = ".+[@].+[\\.].+", message = "invalid email format")
+  @Email(regexp = ".+[@].+[\\.].+")
   private String email;
   @Password
   private String password;

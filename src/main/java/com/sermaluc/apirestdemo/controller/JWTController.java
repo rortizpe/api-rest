@@ -1,4 +1,4 @@
-/*package com.sermaluc.apirestdemo.controller;
+package com.sermaluc.apirestdemo.controller;
 
 import com.sermaluc.apirestdemo.model.entity.JWTUser;
 import io.jsonwebtoken.Jwts;
@@ -44,4 +44,4 @@ public class JWTController {
             secretKey.getBytes()).compact();
 
   }
-}*/
+}

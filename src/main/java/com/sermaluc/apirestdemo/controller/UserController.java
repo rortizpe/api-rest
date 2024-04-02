@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
-import reactor.util.context.Context;
 
-
+/**
+ * Created by: Raul Ortiz for Sermaluc
+ */
 @RestController
 @AllArgsConstructor
 @RequestMapping()
@@ -27,14 +28,20 @@ public class UserController {
 
   private final UserService userService;
 
+  /**
+   * Este controlador se usa para crear usuarios.
+   *
+   * @return Mono<UserResponse> datos necesarios para la vista.
+   */
   @PostMapping(value = "/user")
   @ResponseStatus(HttpStatus.CREATED)
   @ApiOperation(produces = MediaType.APPLICATION_JSON_VALUE,
       value = "crea un nuevo usuario", notes = "crea un nuevo usuario",
       responseContainer = "Collection", response = UserResponse.class)
   public Mono<UserResponse> createUser(@Validated @RequestBody UserRequest userRequest,
-                                        @RequestHeader("Authorization") String token,
-                                        BindingResult bindingResult) {
+                                       BindingResult bindingResult,
+                                       @RequestHeader("Authorization") String token
+  ) {
     ErrorUtil.errorOfValidation(bindingResult);
     return userService.createUser(userRequest)
         .subscriberContext(context -> context.put("Authorization", token));

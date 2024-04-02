@@ -1,4 +1,3 @@
-/*
 package com.sermaluc.apirestdemo.security;
 
 import io.jsonwebtoken.*;
@@ -45,12 +44,12 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     return Jwts.parser().setSigningKey(SECRET.getBytes()).parseClaimsJws(jwtToken).getBody();
   }
 
-  */
+
 /**
    * Authentication method in Spring flow
    *
    * @param claims description
-   *//*
+   */
 
   private void setUpSpringAuthentication(Claims claims) {
     @SuppressWarnings("unchecked")
@@ -68,4 +67,3 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
   }
 
 }
-*/

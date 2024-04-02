@@ -1,8 +1,12 @@
 package com.sermaluc.apirestdemo.util;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DateUtil {
   public static final String DATE_TIME_AMPM_FORMAT = "dd/MM/yyyy hh:mm:ss";
 

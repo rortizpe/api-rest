@@ -18,7 +18,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-//@SpringBootTest
 class UserServiceImplTest {
 
   private static final String TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoicmF1bCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3MTIwNzUxNzcsImV4cCI6MTcxMjA3NTc3N30.TuraJpiooGmjSjtEG5fMCcpj-XwIU81d7Ca3AnZg39I1tlSVik2itkhzqjcI2ExYbSKh5Ey3S1EzUY2Fl8C98A";

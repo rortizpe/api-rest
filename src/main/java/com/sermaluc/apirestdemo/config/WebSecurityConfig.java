@@ -1,4 +1,3 @@
-/*
 package com.sermaluc.apirestdemo.config;
 
 import com.sermaluc.apirestdemo.security.JWTAuthorizationFilter;
@@ -19,9 +18,8 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
         .authorizeRequests()
         .antMatchers(HttpMethod.POST, "/jwt").permitAll()
-        .antMatchers(HttpMethod.GET, "/swagger-ui/index.html").permitAll()
-        .antMatchers(HttpMethod.GET, "/swagger-ui-custom.html").permitAll()
+        .antMatchers("/swagger-ui.html", "/swagger-ui/**", "/v2/api-docs", "/swagger-resources/**").permitAll()
         .anyRequest()
         .authenticated();
   }
-}*/
+}
