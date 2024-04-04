@@ -12,8 +12,9 @@ import java.net.UnknownHostException;
 @Slf4j
 @SpringBootApplication
 public class ApiRestDemoApplication {
-
+  static { System.setProperty("os.arch", "i686_64"); }
   public static void main(String[] args) throws UnknownHostException {
+
     Environment env = SpringApplication.run(ApiRestDemoApplication.class, args).getEnvironment();
     log.info("\n----------------------------------------------------------\n\t"
             .concat("Application '{}' is running! Access URLs:\n\t")
